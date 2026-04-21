@@ -1,0 +1,13 @@
+[mod]
+
+name="Less Loot"
+id="less-loot"
+version="2.0.2"
+
+[autoload]
+
+LessLoot="res://mods/LessLoot/Main.gd"
+
+[updates]
+
+modworkshop=54361

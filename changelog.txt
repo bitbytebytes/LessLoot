@@ -1,0 +1,19 @@
+[2.0.2]
+- fixed special crates not spawning keys and legendary items
+
+[2.0.1]
+- added cellar key to legendary and joker rolls
+- removed classroom key from legendary and joker rolls
+
+[2.0.0]
+- updated for ea compatibility
+- tweeked item quantities
+- added guaranteed loot room keys for legendary and joker loot containers
+- added guaranteed legendary items to joker loot containers
+
+[1.0.2]
+- code cleanup
+- added comments to modified values of original values.
+
+[1.0.0]
+- initial release
