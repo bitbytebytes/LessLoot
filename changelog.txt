@@ -1,3 +1,6 @@
+[2.0.3]
+- updated logging
+
 [2.0.2]
 - fixed special crates not spawning keys and legendary items
 
