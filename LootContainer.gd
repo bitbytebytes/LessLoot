@@ -30,7 +30,7 @@ func FillBuckets():
 
 
 func GenerateLoot():
-    rarityRoll = randi_range(1, 200)
+    rarityRoll = randi_range(1, 199)
     if joker: rarityRoll = 200
 
 
@@ -38,8 +38,7 @@ func GenerateLoot():
         CreateLoot(loot_keys.pick_random())
         
         if legendaryBucket.size() != 0:
-            for pick in 1:
-                CreateLoot(legendaryBucket.pick_random())
+            CreateLoot(legendaryBucket.pick_random())
 
     elif rarityRoll <= 5:
         if rareBucket.size() != 0:
@@ -52,12 +51,10 @@ func GenerateLoot():
                 CreateLoot(commonBucket.pick_random())
 
     elif rarityRoll == 200:
-        for pick in 2:
-            CreateLoot(loot_keys.pick_random())
+        CreateLoot(loot_keys.pick_random())
             
         if legendaryBucket.size() != 0:
-            for pick in 2:
-                CreateLoot(legendaryBucket.pick_random()) 
+            CreateLoot(legendaryBucket.pick_random()) 
                 
         if rareBucket.size() != 0:
             for pick in randi_range(2, 4):

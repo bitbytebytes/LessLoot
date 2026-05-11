@@ -26,17 +26,23 @@ func _on_scene_change() -> void:
         return
     else:
         log_message("Updating map loot")
-        _update_loot_containers("Crate_Special", map)
-        _update_loot_containers("Crate_Military", map)
-        _update_loot_simulation("LS_Vostok", map)
+        _update_military_loot_containers("Crate_Special", map)
+        _update_military_loot_containers("Crate_Military", map)
+        _update_military_loot_simulation("LS_Vostok", map)
 
 
-func _update_loot_containers(container_name: String, map: Node) -> void:
+func _update_military_loot_containers(container_name: String, map: Node) -> void:
     var containers = map.find_children(container_name + "*")
     for container in containers:
+        var _name = container.containerName
+        var _audio = container.audioEvent
+        var _locked = container.locked
+        
         container.set_script(container_script)
-        container.audioEvent = load("uid://dog4rlks1my64")
+        container.containerName = _name
+        container.audioEvent = _audio
         container.military = true
+        container.locked = _locked
         if container_name == "Crate_Special":
             container.containerName = "Crate Special"
             container.joker = true
@@ -45,17 +51,14 @@ func _update_loot_containers(container_name: String, map: Node) -> void:
             container.containerName = "Crate Military"
             container.joker = false
             container.stash = false
-        container.ClearBuckets()
-        container.FillBuckets()
-        container.GenerateLoot()
+        container._ready()
 
 
-func _update_loot_simulation(simulation_name: String, map: Node) -> void:
+func _update_military_loot_simulation(simulation_name: String, map: Node) -> void:
     var simulations = map.find_children(simulation_name + "*")
     for simulation in simulations:
         simulation.set_script(simulation_script)
-        if simulation_name == "LS_Vostok":
-            simulation.military = true
+        simulation.military = true
         simulation.ClearBuckets()
         simulation.FillBuckets()
         simulation.GenerateLoot()

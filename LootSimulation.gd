@@ -28,8 +28,7 @@ func GenerateLoot():
 
     if rarityRoll == 1:
         if legendaryBucket.size() != 0:
-            for pick in 1:
-                loot.append(legendaryBucket.pick_random())
+            loot.append(legendaryBucket.pick_random())
 
     elif rarityRoll <= 5:
         if rareBucket.size() != 0:
